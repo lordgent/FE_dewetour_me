@@ -1,0 +1,64 @@
+.btnlog {
+  border: 1px solid rgb(255, 255, 255);
+  background-color: transparent;
+  color: white;
+  padding: 3px 15px 3px 15px !important;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.btnreg {
+  border: 1px solid #ffaf00;
+  background-color: #ffaf00;
+  color: white;
+  padding: 3px 10px 3px 10px;
+  margin-left: 8px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+.log {
+  color: white;
+  font-weight: bold;
+  font-family: "Open Sans", sans-serif !important;
+  font-style: italic;
+}
+.log:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.navbar {
+  background-image: url("../../assets/icons/bg2.png");
+  height: 65px;
+  background-color: none !important;
+}
+
+.navbar::-webkit-scrollbar-track {
+  background-image: none;
+}
+
+.drp {
+  padding: 10px;
+}
+.tdrp {
+  color: rgb(58, 58, 58);
+  font-weight: bold;
+  font-size: 13px;
+}
+.tdrp:hover {
+  text-decoration: none;
+  color: rgb(56, 56, 56);
+}
+#dropdown-basic {
+  background-color: transparent;
+  border: none !important;
+}
+#dropdown-basic:focus {
+  outline: transparent !important;
+}
+@media screen and (max-height: 50px) {
+  .navbar {
+    background-color: transparent !important;
+    background-image: none;
+    padding: 10px 40px !important;
+  }
+}

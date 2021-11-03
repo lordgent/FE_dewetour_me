@@ -1,0 +1,76 @@
+.content {
+  padding: 170px;
+  margin-top: -60px;
+}
+.imgs {
+  height: 361px;
+  width: 100%;
+}
+
+.container-icon {
+  display: flex;
+}
+
+.content-icon {
+  margin-left: 100px;
+}
+
+.content-text {
+  font-size: 11px;
+}
+
+.title-content {
+  font-size: 10px;
+}
+
+.content-right {
+  right: 0 !important;
+}
+
+.content-transaction {
+  display: flex;
+}
+
+.container-action {
+  display: flex;
+}
+
+.btntog {
+  color: white;
+  background-color: #ffaf00;
+  border: none;
+  border-radius: 6px;
+  height: 30px;
+  width: 30px;
+}
+.qty {
+  font-size: 18px;
+  color: #ffaf00;
+  font-weight: bold;
+}
+
+.price {
+  color: #ffaf00;
+  font-size: 17px;
+  font-weight: bold;
+}
+.person {
+  color: rgb(53, 53, 53);
+}
+
+.btnbooking {
+  background-color: #ffaf00;
+  color: white;
+  right: 12%;
+  border: none;
+  position: absolute;
+  margin-top: 30px;
+  padding: 5px 20px 5px 20px;
+}
+
+.eat {
+  width: 30%;
+  text-overflow: ellipsis !important;
+  white-space: nowrap;
+  overflow: hidden;
+}

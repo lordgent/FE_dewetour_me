@@ -1,0 +1,37 @@
+.modbtn {
+  width: 100%;
+  background-color: rgb(255, 196, 0);
+  color: white;
+  font-weight: bold;
+  border: none;
+  height: 50px;
+}
+.inpt {
+  background-color: rgb(230, 230, 230) !important;
+  border: 1px solid rgb(230, 230, 230) !important;
+  height: 45px !important;
+}
+.here {
+  color: rgb(128, 128, 128);
+}
+
+.loo {
+  font-size: 30px;
+  text-align: center !important;
+  margin: auto;
+  font-weight: bold;
+  color: rgb(53, 53, 53);
+  margin-top: -40px;
+}
+.tt {
+  display: flex;
+
+  margin-top: -1px !important;
+}
+.mm {
+  padding: 20px !important;
+}
+
+.formm {
+  padding: 20px;
+}

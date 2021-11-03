@@ -1,0 +1,45 @@
+.dd {
+  margin: auto;
+  justify-content: center !important;
+  width: 120vh;
+  padding: 10px;
+  height: 17rem;
+}
+
+.bk {
+  position: absolute;
+  right: 18px;
+  margin-right: 2%;
+}
+
+.t {
+  font-size: 10px;
+  color: rgb(54, 54, 54);
+  font-weight: bold;
+  margin-bottom: -3px;
+}
+
+.sd {
+  position: absolute;
+  right: 18px;
+  margin-right: 2%;
+  margin-top: 30%;
+}
+.tt {
+  font-size: 12px;
+  margin-top: 15px;
+  margin-bottom: -5px;
+}
+
+.statuspay {
+  color: rgb(184, 184, 4);
+  background-color: rgba(255, 199, 15, 0.589);
+  text-align: center;
+  font-size: 13px;
+  width: 70%;
+  padding: 2px;
+}
+
+.datetrip {
+  font-size: 12px;
+}

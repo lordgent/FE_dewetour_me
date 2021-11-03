@@ -1,0 +1,122 @@
+.container-order {
+  margin-top: 40%;
+}
+
+.content {
+  padding: 100px;
+  margin-top: -80px;
+}
+
+.cardorder {
+  height: 27rem;
+  margin-top: 90px;
+  padding: 20px;
+}
+
+.btnpayment {
+  border: none;
+  position: absolute;
+  color: white;
+  background-color: #ffaf00;
+  padding: 5px 45px 5px 45px;
+  right: 1rem;
+  margin-top: 20px;
+}
+
+.logoboking {
+  right: 4rem;
+  position: absolute;
+  font-weight: bold;
+  color: rgb(54, 54, 54);
+}
+
+.rightcontent {
+  margin-top: 20px;
+}
+
+.title {
+  font-weight: bold;
+  color: rgb(56, 56, 56);
+  font-size: 19px;
+}
+
+.country {
+  margin-top: -1px;
+  font-size: 12px;
+  font-weight: bold;
+  color: rgb(185, 185, 185);
+}
+
+.contentor {
+  margin-left: 50px;
+}
+
+.ttl {
+  font-weight: bold;
+  color: rgb(39, 39, 39);
+  font-size: 14px;
+}
+
+.paymentimg {
+  position: absolute;
+  right: 3rem;
+}
+
+.stspayment {
+  color: rgb(255, 126, 126);
+  background-color: rgb(255, 234, 234);
+  width: 35%;
+  text-align: center;
+  font-size: 11px;
+  padding: 2px;
+  margin-top: 50px;
+}
+
+.paymentttl {
+  font-size: 12px;
+  color: rgb(161, 161, 161);
+  margin-right: 2px;
+}
+
+.imgpay {
+  align-items: center;
+  border: 1px solid #ffae006e;
+  padding: 5px;
+  margin-left: 25px;
+  border-radius: 8px;
+  height: 60px;
+}
+.resultitem {
+  font-size: 12px;
+  color: rgb(156, 156, 156);
+  margin-top: -18px;
+}
+
+.created {
+  font-size: 12px;
+  right: 4em;
+  position: absolute;
+  margin-top: 39px;
+}
+
+.tableorder {
+  overflow-y: hidden !important;
+}
+
+.orderqty {
+  font-weight: bold;
+  color: rgb(73, 73, 73);
+}
+.subtotal {
+  color: rgba(255, 7, 7, 0.863);
+  font-weight: bold;
+}
+.stswaiting {
+  color: rgb(240, 186, 8);
+  background-color: rgb(252, 238, 177);
+  width: 35%;
+  text-align: center;
+  font-size: 11px;
+  padding: 2px;
+  margin-top: 50px;
+}

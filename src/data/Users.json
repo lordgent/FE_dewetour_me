@@ -1,0 +1,26 @@
+[
+  {
+    "fullname": "admin dewe",
+    "email": "admdewe@tour.com",
+    "nophone": "088218719807",
+    "password": "12345",
+    "gender": "male",
+    "status": "admin"
+  },
+  {
+    "fullname": "user one",
+    "email": "user1@gmail.com",
+    "nophone": "0882189320311",
+    "password": "12345",
+    "gender": "male",
+    "status": "user"
+  },
+  {
+    "fullname": "user two",
+    "email": "user2@gmail.com",
+    "nophone": "0883990023377",
+    "password": "12345",
+    "gender": "male",
+    "status": "user"
+  }
+]
