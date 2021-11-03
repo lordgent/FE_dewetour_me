@@ -13,6 +13,7 @@
 
 .content-icon {
   margin-left: 100px;
+  border: 1px solid;
 }
 
 .content-text {
@@ -21,6 +22,7 @@
 
 .title-content {
   font-size: 10px;
+  border: 1px solid;
 }
 
 .content-right {
@@ -69,8 +71,9 @@
 }
 
 .eat {
-  width: 30%;
-  text-overflow: ellipsis !important;
-  white-space: nowrap;
-  overflow: hidden;
+  width: 10%;
+}
+*/ .duration {
+  border: 1px solid;
+  margin-right: 10px;
 }

@@ -127,13 +127,13 @@ function DetailPage({ match }) {
             <span className="content-text ml-1">{detail?.transpotation}</span>
           </div>
           <div className="content-icon">
-            <span className="title-content mr-2">Eat</span>
+            <span className="title-content">Eat</span>
             <br />
             <img src={eat} alt="logohotel" height="17" />
             <span className="content-text ml-1 eat">{detail?.eat}</span>
           </div>
-          <div className="content-icon">
-            <span className="title-content duration">Duration</span>
+          <div className="content-icon duration">
+            <span className="title-content ">Duration</span>
             <br />
             <img src={clock} alt="logohotel" height="17" />
             <span className="content-text">
@@ -144,7 +144,7 @@ function DetailPage({ match }) {
             <span className="title-content">Date Trip</span>
             <br />
             <img src={cal} alt="logohotel" height="17" />
-            <span className="content-text ml-1">{detail?.datetrip}</span>
+            <span className="content-text">{detail?.datetrip}</span>
           </div>
         </div>
         <p className="mt-3">Description</p>
