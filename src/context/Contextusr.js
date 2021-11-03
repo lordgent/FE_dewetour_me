@@ -5,6 +5,8 @@ const initialState = {
   stsLogin: false,
   user: {},
   order: {},
+  isUpdate: false,
+  qty: 0,
 };
 
 const reducer = (state, action) => {
@@ -26,11 +28,19 @@ const reducer = (state, action) => {
       };
     case "LOGOUT":
       localStorage.removeItem("tokenkey");
-
       return {
         ...state,
         stsLogin: false,
         user: {},
+      };
+    case "UPDATE":
+      return {
+        ...state,
+        isUpdate: !state.isUpdate,
+      };
+    case "HANDLE_QTY":
+      return {
+        qty: payload,
       };
 
     default:

@@ -19,7 +19,7 @@ function HomePage() {
   const trips = JSON.parse(localStorage.getItem("trip"));
   const [Trips, setTrips] = useState([]);
   const [filterdata, setfilterdata] = useState([]);
-
+  console.log(state);
   const handleSearch = (e) => {
     const search = e.target.value;
     const newfilter = Trips?.filter((value) => {

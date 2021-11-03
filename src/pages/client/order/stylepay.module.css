@@ -120,3 +120,8 @@
   padding: 2px;
   margin-top: 50px;
 }
+
+.nottranscation {
+  border: 1px solid red;
+  margin-top: 40%;
+}

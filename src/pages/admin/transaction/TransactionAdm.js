@@ -51,14 +51,19 @@ function TransactionAdm() {
                   <td>{item?.User?.fullname}</td>
                   <td>{item?.Trips.title}</td>
                   <td>
-                    <img
-                      src={
-                        "http://localhost:5005/uploads/payment/" + item?.payment
-                      }
-                      alt="bca.jpg"
-                      height="40"
-                      width="40"
-                    />
+                    {item?.payment === null ? (
+                      <span>-</span>
+                    ) : (
+                      <img
+                        src={
+                          "http://localhost:5005/uploads/payment/" +
+                          item?.payment
+                        }
+                        alt="bca.jpg"
+                        height="40"
+                        width="40"
+                      />
+                    )}
                   </td>
                   <DetailOrder />
                   <td>

@@ -34,7 +34,7 @@ function OrderPage() {
 
   useEffect(() => {
     getOrderUser();
-  }, []);
+  }, [state.isUpdate]);
 
   const handleChange = (e, idx) => {
     setForm({
@@ -63,6 +63,9 @@ function OrderPage() {
       );
 
       const response = await API.put("/transaction/" + id, formData, config);
+      dispatch({
+        type: "UPDATE",
+      });
       if (response.status === 200) {
         swal("Payment Success");
         history.push("/client/order");
@@ -78,8 +81,8 @@ function OrderPage() {
 
       <div className={stylepay.container}>
         <Row className={stylepay.content}>
-          {!Userorder.length ? (
-            <div>
+          {Userorder?.length === [] ? (
+            <div className={stylepay.nottransaction}>
               <p>Not Transaction</p>
             </div>
           ) : (
