@@ -3,7 +3,6 @@ import { Row, Col, Card } from "react-bootstrap";
 import "./card.css";
 import { Link } from "react-router-dom";
 import { API } from "../../config/api";
-import travelgif from "../../assets/icons/travel.gif";
 
 function CardTrip() {
   const rp = require("rupiah-format");
@@ -12,7 +11,6 @@ function CardTrip() {
 
   const getTrips = async () => {
     try {
-      setisLoading(true);
       const response = await API.get("/trips");
       setisLoading(false);
       setTrips(response.data.data);
@@ -20,7 +18,10 @@ function CardTrip() {
   };
 
   useEffect(() => {
-    getTrips();
+    setisLoading(true);
+    setTimeout(() => {
+      getTrips();
+    }, 1000);
   }, []);
 
   const images = Trips?.map((datas, i) => {
@@ -30,9 +31,7 @@ function CardTrip() {
   return (
     <>
       {isLoading ? (
-        <div className="load">
-          <img src={travelgif} alt="gifimages" width="150" height="150" />
-        </div>
+        <div className="load"></div>
       ) : (
         <Row>
           {Trips?.map((item, idx) => (
@@ -48,12 +47,24 @@ function CardTrip() {
                       className="imgl"
                     />
                   </center>
+
+                  <span className="quota">
+                    {item?.quota}/{item?.avilable}
+                  </span>
                 </Link>
-                <h5 className="titletrip">
-                  {item?.day}D/{item?.night}N {item?.title}
-                </h5>
-                <p className="to">{rp.convert(item?.price)}</p>
-                <p className="cnty ml-auto">{item?.country}</p>
+                <div className="p-2">
+                  <h5 className="titletrip mt-3">
+                    {item?.day}D/{item?.night}N {item?.title}
+                  </h5>
+
+                  <p className="to">
+                    {" "}
+                    {item?.quota === item?.avilable
+                      ? "SOLD OUT"
+                      : rp.convert(item?.price)}
+                  </p>
+                  <p className="cnty ml-auto">{item?.Countries?.namecountry}</p>
+                </div>
               </Card>
             </Col>
           ))}

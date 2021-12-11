@@ -1,5 +1,5 @@
-import React, { useState, useContext } from "react";
-import { Modal, Form } from "react-bootstrap";
+import React, { useState } from "react";
+import { Modal, Form, Alert } from "react-bootstrap";
 import "./modals.css";
 import icn from "../../assets/icons/l2.png";
 import icns from "../../assets/icons/l1.png";
@@ -7,16 +7,9 @@ import swal from "sweetalert";
 import { API } from "../../config/api";
 
 function RegisterMod({ handleClose, handleShow }) {
-  function getUser() {
-    let datas = localStorage.getItem("users");
-    if (datas) {
-      return JSON.parse(datas);
-    } else {
-      return [];
-    }
-  }
-
-  const [datausers, setdatausers] = useState(getUser());
+  const [alert, setalert] = useState(null);
+  const [gender, setgender] = useState(null);
+  const [pass, setpass] = useState(null);
 
   const [form, setform] = useState({
     fullname: "",
@@ -25,6 +18,7 @@ function RegisterMod({ handleClose, handleShow }) {
     address: "",
     email: "",
     password: "",
+    passwordtwo: "",
   });
 
   const handleChange = (e) => {
@@ -36,22 +30,63 @@ function RegisterMod({ handleClose, handleShow }) {
 
   const handleRegister = async (e) => {
     e.preventDefault();
+
+    if (form.password !== form.passwordtwo) {
+      return swal("password tidak cocok");
+    }
     try {
       const config = {
         headers: {
           "Content-type": "application/json",
         },
       };
-      const body = JSON.stringify(form);
+      let obj = {
+        fullname: form.fullname,
+        nophone: form.nophone,
+        gender: form.gender,
+        address: form.address,
+        email: form.email,
+        password: form.password,
+      };
+      const body = JSON.stringify(obj);
 
       const response = await API.post("/signup", body, config);
-      console.log(response);
-      if (400) {
+
+      if (response?.status === 200) {
+        const msg = <Alert variant="success">Register is Success!</Alert>;
+        setalert(msg);
       }
-      console.log(response);
-      swal("Register Successfully..");
     } catch (error) {
-      swal("cek...");
+      console.log(error.response.data);
+
+      if (error.response.data.message) {
+        const msg = (
+          <Alert variant="danger" className="alert-auth">
+            Email is Already
+          </Alert>
+        );
+        setalert(msg);
+      } else if (
+        error.response.data.error.message ===
+        '"gender" is not allowed to be empty'
+      ) {
+        const msg = (
+          <Alert variant="danger" className="alert-auth">
+            {error.response.data.error.message}
+          </Alert>
+        );
+        setgender(msg);
+      } else if (
+        error.response.data.error.message ===
+        '"password" length must be at least 8 characters long'
+      ) {
+        const msg = (
+          <Alert variant="danger" className="alert-auth">
+            {error.response.data.error.message}
+          </Alert>
+        );
+        setpass(msg);
+      }
     }
   };
 
@@ -59,7 +94,7 @@ function RegisterMod({ handleClose, handleShow }) {
     <>
       <Modal show={handleShow} onHide={handleClose}>
         <div className="tt">
-          <img src={icn} alt="dfdsf" height="100" width="120" />
+          <img src={icn} alt="dfdsf" height="100" width="90" />
           <img
             src={icns}
             alt="dfdsf"
@@ -84,7 +119,7 @@ function RegisterMod({ handleClose, handleShow }) {
             </Form.Group>
 
             <Form.Group controlId="formBasicEmail">
-              <Form.Label>No phone</Form.Label>
+              <Form.Label>Phone Number</Form.Label>
               <Form.Control
                 type="number"
                 className="inpt"
@@ -93,13 +128,31 @@ function RegisterMod({ handleClose, handleShow }) {
               />
             </Form.Group>
 
-            <Form.Group controlId="exampleForm.ControlSelect1">
-              <Form.Label>Gender</Form.Label>
-              <Form.Control as="select" name="gender" onChange={handleChange}>
-                <option>--</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-              </Form.Control>
+            <Form.Group>
+              <div>
+                <input
+                  type="radio"
+                  onChange={handleChange}
+                  name="gender"
+                  id="male"
+                  value="male"
+                />
+                <label htmlFor="male" className="ml-1">
+                  Male
+                </label>
+
+                <input
+                  className="ml-2"
+                  type="radio"
+                  name="gender"
+                  id="female"
+                  value="female"
+                  onChange={handleChange}
+                />
+                <label htmlFor="female" className="ml-1">
+                  Female
+                </label>
+              </div>
             </Form.Group>
 
             <Form.Group controlId="formBasicEmail">
@@ -113,7 +166,7 @@ function RegisterMod({ handleClose, handleShow }) {
             </Form.Group>
 
             <Form.Group controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
+              <Form.Label>Email</Form.Label>
               <Form.Control
                 type="email"
                 className="inpt"
@@ -124,6 +177,7 @@ function RegisterMod({ handleClose, handleShow }) {
 
             <Form.Group controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
+              {pass && pass}
               <Form.Control
                 type="password"
                 className="inpt"
@@ -131,9 +185,19 @@ function RegisterMod({ handleClose, handleShow }) {
                 name="password"
               />
             </Form.Group>
-
+            <Form.Group controlId="formBasicPassword">
+              <Form.Label>Confirm Password</Form.Label>
+              {pass && pass}
+              <Form.Control
+                type="password"
+                className="inpt"
+                onChange={handleChange}
+                name="passwordtwo"
+              />
+            </Form.Group>
+            {alert && alert}
             <button className="modbtn" type="submit">
-              Login
+              Register
             </button>
             <p className="text-center here">
               Dont have an Account? Klik{" "}

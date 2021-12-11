@@ -1,18 +1,20 @@
 import React, { useEffect, useContext } from "react";
-import { Route, Switch, useHistory } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import HomePage from "./pages/home/HomePage";
 import DetailPage from "./pages/details/DetailPage";
-import dataUser from "./data/Users.json";
-import dataTrip from "./data/Trip.json";
 import Private from "./private/Private";
-import PendingPage from "./pages/client/pending/PendingPage";
+import PrivateAdmin from "./private/PrivateAdmin";
+import { API, AuthToken } from "./config/api";
+import { UserContext } from "./context/Contextusr";
+import "./App.css";
 import ProfilePage from "./pages/client/profile/ProfilePage";
 import OrderPage from "./pages/client/order/OrderPage";
 import TransactionAdm from "./pages/admin/transaction/TransactionAdm";
-import TripAdmin from "./pages/admin/Trip/TripAdmin";
-import { API, AuthToken } from "./config/api";
 import AddnewTrip from "./pages/admin/addtrip/AddnewTrip";
-import { UserContext } from "./context/Contextusr";
+import TripAdmin from "./pages/admin/Trip/TripAdmin";
+import PageNotFound from "./pages/PageNotFound";
+import Footer from "./components/footer/Footer";
+import ChatPage from "./pages/client/chat/ChatPage";
 
 if (localStorage.tokenkey) {
   AuthToken(localStorage.tokenkey);
@@ -20,16 +22,13 @@ if (localStorage.tokenkey) {
 
 function App() {
   const [state, dispatch] = useContext(UserContext);
-  let history = useHistory();
-
   const cekAuth = async () => {
     try {
       const response = await API.get("/userauth");
-
       const user = response?.data?.data;
-      user.token = localStorage.tokenkey;
+
       dispatch({
-        type: "LOGIN_SUCCESS",
+        type: "AUTH",
         payload: user,
       });
     } catch (error) {
@@ -45,34 +44,22 @@ function App() {
     if (localStorage.tokenkey) {
       AuthToken(localStorage.tokenkey);
     }
-    if (state.stsLogin === false) {
-      history.push("/");
-    } else {
-      if (state.user.role === "admin") {
-        history.push("/admin");
-      } else if (state.user.role === "user") {
-        history.push("/");
-      }
-    }
   }, [state]);
-
-  useEffect(() => {
-    localStorage.setItem("users", JSON.stringify(dataUser));
-    localStorage.setItem("trip", JSON.stringify(dataTrip));
-  }, []);
-
+  console.log(state?.isLoading);
   return (
     <>
       <Switch>
         <Route path="/" exact component={HomePage} />
         <Route path="/detail/:id" exact component={DetailPage} />
-        <Private path="/client/profile" exact component={ProfilePage} />
-        <Private path="/client/order" exact component={OrderPage} />
-        <Private path="/client/payment" exact component={PendingPage} />
-        <Private path="/admin" exact component={TransactionAdm} />
-        <Private path="/admin/trip" exact component={TripAdmin} />
-        <Private path="/admin/addtrip" exact component={AddnewTrip} />
+        <Private path="/user/profile" exact component={ProfilePage} />
+        <Private path="/user/payment" exact component={OrderPage} />
+        <Private path="/user/chat" exact component={ChatPage} />
+        <PrivateAdmin path="/admin" exact component={TransactionAdm} />
+        <PrivateAdmin path="/admin/trip" exact component={AddnewTrip} />
+        <PrivateAdmin path="/admin/trips" exact component={TripAdmin} />
+        <Route component={PageNotFound} />
       </Switch>
+      <Footer />
     </>
   );
 }

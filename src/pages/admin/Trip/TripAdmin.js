@@ -15,11 +15,12 @@ function TripAdmin() {
             <h2>Income Trip</h2>
           </Col>
           <Col md={6}>
-            <Link to="/admin/addtrip" className={styletrp.btntrp}>
+            <Link to="/admin/trip" className={styletrp.btntrp}>
               Add Trip
             </Link>
           </Col>
         </Row>
+
         <CardTrip />
       </Container>
     </>

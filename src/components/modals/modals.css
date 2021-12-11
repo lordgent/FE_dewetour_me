@@ -9,7 +9,7 @@
 .inpt {
   background-color: rgb(230, 230, 230) !important;
   border: 1px solid rgb(230, 230, 230) !important;
-  height: 45px !important;
+  height: 35px !important;
 }
 .here {
   color: rgb(128, 128, 128);
@@ -25,13 +25,38 @@
 }
 .tt {
   display: flex;
-
-  margin-top: -1px !important;
 }
 .mm {
   padding: 20px !important;
 }
 
 .formm {
-  padding: 20px;
+  padding: 10px;
+  margin-top: -30px;
+}
+
+.showpass {
+  background-color: rgb(255, 255, 255) !important;
+  padding: 10px 15px 10px 15px;
+}
+
+.inpt:hover {
+  background-color: white;
+}
+
+.inputpass {
+  background-color: rgb(255, 255, 255) !important;
+  border: 1px solid rgb(255, 255, 255) !important;
+  height: 45px !important;
+  width: 86%;
+  padding: 8px;
+  border: none !important;
+  background: white;
+  margin-top: -5px;
+}
+
+.alert-auth {
+  font-size: 9px;
+  width: 60%;
+  padding: 10px !important;
 }

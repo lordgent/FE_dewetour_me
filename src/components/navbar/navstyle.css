@@ -48,17 +48,15 @@
   text-decoration: none;
   color: rgb(56, 56, 56);
 }
+
+.avatar {
+  width: 20px;
+}
+
 #dropdown-basic {
   background-color: transparent;
   border: none !important;
 }
 #dropdown-basic:focus {
   outline: transparent !important;
-}
-@media screen and (max-height: 50px) {
-  .navbar {
-    background-color: transparent !important;
-    background-image: none;
-    padding: 10px 40px !important;
-  }
 }

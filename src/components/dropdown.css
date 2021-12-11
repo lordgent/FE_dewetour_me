@@ -5,21 +5,32 @@
   background-color: transparent !important;
   position: fixed;
   z-index: 1;
+  margin-top: 10px;
   height: 100vh;
+  border-radius: 40px;
 }
 
 .containerdrop {
   position: fixed;
-  height: 190px;
+
   width: 200px;
   background-color: #ffff;
   padding: 12px 5px;
   top: 4.2em;
   right: 7em;
-  margin-top: 10px;
-  z-index: 2;
+  margin-top: 17px;
+  z-index: 4;
 }
-
+.containerdropp {
+  position: fixed;
+  width: 200px;
+  background-color: #ffff;
+  padding: 12px 5px;
+  top: 4.2em;
+  right: 7em;
+  margin-top: 17px;
+  z-index: 4;
+}
 .har {
   border: 1px solid rgb(197, 197, 197);
   width: 100%;
@@ -34,7 +45,7 @@
   z-index: 4;
   right: 0 !important;
   position: absolute;
-  margin-top: -25px;
+  margin-top: -33px;
 }
 
 .links:hover {

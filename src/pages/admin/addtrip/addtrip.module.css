@@ -1,5 +1,5 @@
 .containertrip {
-  padding: 5px 150px 0 150px;
+  padding: 40px 200px 0 200px;
 }
 .imgs {
   border: 1px solid rgb(255, 217, 161);
@@ -7,11 +7,6 @@
   font-size: 15px;
   color: rgb(117, 117, 117);
 }
-
-/* .imgp {
-  position: absolute;
-  width: 17px;
-} */
 
 .btntrip {
   background-color: #ffaf00;
@@ -22,4 +17,23 @@
 
 .imagefile {
   padding: 10px;
+}
+
+.modal {
+  background-color: #fcf9f4;
+}
+.butonadd {
+  color: white;
+  margin-right: 10px;
+  background-color: #ffaf00;
+  border: none;
+  padding: 5px 15px 5px 15px;
+}
+
+.butoncancel {
+  color: white;
+  margin-right: 10px;
+  background-color: #fd6f2d;
+  border: none;
+  padding: 5px 15px 5px 15px;
 }

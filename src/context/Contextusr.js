@@ -1,47 +1,47 @@
 import { createContext, useReducer } from "react";
+
 export const UserContext = createContext();
 
 const initialState = {
   stsLogin: false,
   user: {},
-  order: {},
-  isUpdate: false,
-  qty: 0,
+  isLoading: true,
 };
 
 const reducer = (state, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case "ADD_TRIP":
-      localStorage.setItem("ordertrip", JSON.stringify(payload));
-      return {
-        ...state,
-        order: payload,
-      };
     case "LOGIN_SUCCESS":
       localStorage.setItem("tokenkey", payload.token);
       return {
         ...state,
         stsLogin: true,
+        isLoading: false,
         user: payload,
       };
     case "LOGOUT":
       localStorage.removeItem("tokenkey");
       return {
-        ...state,
         stsLogin: false,
         user: {},
       };
-    case "UPDATE":
+    case "ISLOADING":
       return {
         ...state,
-        isUpdate: !state.isUpdate,
+        isLoading: false,
       };
-    case "HANDLE_QTY":
-      return {
-        qty: payload,
-      };
+    case "AUTH":
+      const token = localStorage.getItem("tokenkey");
+      return token
+        ? {
+            stsLogin: true,
+            user: payload,
+            token,
+          }
+        : {
+            stsLogin: false,
+          };
 
     default:
       throw new Error();

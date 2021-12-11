@@ -1,0 +1,27 @@
+.butedit {
+  background-color: #ffaf00;
+  color: white;
+  padding: 5px 30px 5px 30px;
+  border: none;
+  width: 100%;
+}
+.formprofile {
+  padding: 20px;
+}
+
+.label {
+  border: 1px solid #ffaf00;
+  width: 100%;
+  padding: 10px;
+}
+
+.textlabel {
+  color: rgb(75, 75, 75);
+  font-weight: bold;
+  margin-left: 10px;
+}
+.imagechoice {
+  width: 26rem;
+  height: 20rem;
+  margin-bottom: 10px;
+}

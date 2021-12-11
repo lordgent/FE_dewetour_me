@@ -1,0 +1,95 @@
+.containt {
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.205);
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  position: absolute;
+  padding: 10px 150px 50px 150px;
+}
+
+.cardorder {
+  width: 100%;
+  height: 80vh;
+  background-color: white;
+  margin-top: 7%;
+  padding: 22px;
+}
+
+.booking {
+  right: 1em;
+  position: absolute;
+  padding: 10px;
+}
+
+.textbooking {
+  font-weight: bold;
+  color: rgb(58, 58, 58);
+  margin-left: 3rem;
+}
+.dateorder {
+  font-size: 13px;
+  color: rgb(83, 83, 83);
+  margin-top: -8px;
+}
+
+/* .containtorder {
+  border: 1px solid;
+} */
+.title {
+  font-size: 21px;
+}
+
+.countries {
+  margin-top: -10px;
+  color: rgb(153, 153, 153);
+  font-weight: bold;
+}
+.statuspay {
+  color: rgb(255, 75, 75);
+  background-color: rgb(241, 199, 199);
+  width: 120px;
+  font-size: 13px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.titleorder {
+  font-size: 15px;
+  color: rgb(46, 46, 46);
+  font-weight: 600;
+}
+
+.result {
+  font-size: 14px;
+  color: rgb(146, 146, 146);
+  margin-top: -13px;
+}
+
+.imagepay {
+  margin-left: 4rem;
+  margin-top: 30px;
+}
+.tableorder {
+  margin-top: 10px;
+}
+
+.pending {
+  color: rgb(253, 212, 32);
+  padding: 6px 16px 6px 16px;
+  font-size: 13px;
+  background-color: rgb(245, 255, 188);
+}
+.cancel {
+  color: rgb(253, 133, 133);
+  background-color: rgb(255, 218, 218);
+  padding: 6px 16px 6px 16px;
+  font-size: 13px;
+}
+.approved {
+  color: rgb(34, 248, 34);
+  padding: 6px 16px 6px 16px;
+  font-size: 13px;
+  background-color: rgb(210, 255, 210);
+}

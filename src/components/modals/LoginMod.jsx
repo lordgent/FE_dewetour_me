@@ -7,13 +7,15 @@ import swal from "sweetalert";
 import { UserContext } from "../../context/Contextusr";
 import { useHistory } from "react-router-dom";
 import { API } from "../../config/api";
-
+import view from "../../assets/icons/view.png";
+import hide from "../../assets/icons/hidden.png";
 function LoginMod({ handleClose, handleShow }) {
   let history = useHistory();
-  const users = JSON.parse(localStorage.getItem("users"));
-  const [state, dispatch] = useContext(UserContext);
-  const [Loading, setLoading] = useState(false);
 
+  const [state, dispatch] = useContext(UserContext);
+  const [alert, setalert] = useState(null);
+
+  const [Pass, setPass] = useState("password");
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -28,7 +30,6 @@ function LoginMod({ handleClose, handleShow }) {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    setLoading(true);
     try {
       const config = {
         headers: {
@@ -36,21 +37,45 @@ function LoginMod({ handleClose, handleShow }) {
         },
       };
       const body = JSON.stringify(form);
-
       const response = await API.post("/signin", body, config);
       if (response.status === 200) {
+        handleClose(true);
+        swal("Login success..");
+        const datas = response.data.user;
+        console.log(datas.data.token);
         dispatch({
           type: "LOGIN_SUCCESS",
-          payload: response?.data?.data,
+          payload: {
+            id: datas?.data?.id,
+            fullname: datas?.data?.fullname,
+            imgprofile: datas?.data?.imgprofile,
+            email: datas?.data?.email,
+            role: datas?.data?.role,
+            gender: datas?.data?.gender,
+            nophone: datas?.data?.nophone,
+            token: datas?.token,
+          },
         });
-        if (response?.data?.data.role === "admin") {
+
+        if (datas.data.role === "admin") {
           history.push("/admin");
-        } else if (response?.data?.data.role === "user") {
+        } else if (datas.data.role === "user") {
           history.push("/");
         }
       }
     } catch (error) {
-      swal("server Error");
+      if (error.response.data.message === "username/password incorrect") {
+        const msg = <Alert variant="danger">Email/password Incorrect!</Alert>;
+        setalert(msg);
+      }
+    }
+  };
+
+  const showPassword = (e) => {
+    if (!e.target.checked) {
+      setPass("password");
+    } else {
+      setPass("text");
     }
   };
 
@@ -71,34 +96,54 @@ function LoginMod({ handleClose, handleShow }) {
         <p className="text-center loo">Sign in</p>
 
         <Modal.Body className="mdl">
+          {alert && alert}
           <Form className="formm" onSubmit={handleLogin}>
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control
                 type="email"
-                className="inpt"
+                className="inputpass"
                 onChange={handleChange}
                 name="email"
+                placeholder="Ex : usr@mail.."
               />
             </Form.Group>
 
-            <Form.Group controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                type="password"
-                className="inpt"
-                onChange={handleChange}
-                name="password"
-              />
-            </Form.Group>
+            <div className="passwd">
+              <label>Password</label>
+              <br />
+              <div>
+                <input
+                  type={Pass}
+                  className="inputpass"
+                  onChange={handleChange}
+                  name="password"
+                  placeholder="Strong password"
+                />
+                <label className="showpass" htmlFor="pass">
+                  {Pass === "text" ? (
+                    <img src={view} alt="logo " height="25" />
+                  ) : (
+                    <img src={hide} alt="logo " height="25" />
+                  )}
+                </label>
+                <input
+                  type="checkbox"
+                  id="pass"
+                  className="ml-2"
+                  onClick={showPassword}
+                  hidden
+                />
+              </div>
+            </div>
             <button className="modbtn" type="submit">
               Login
             </button>
             <p className="text-center here">
-              Dont have an Account? Klik{" "}
+              Dont have an Account? Klik
               <span>
-                <strong>Here </strong>{" "}
-              </span>{" "}
+                <strong>Here </strong>
+              </span>
             </p>
           </Form>
         </Modal.Body>

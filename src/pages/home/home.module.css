@@ -24,6 +24,7 @@
   border: none;
   border-radius: 4px;
 }
+
 .dv {
   margin-top: 60px;
   margin-left: 7%;
@@ -48,4 +49,13 @@
 .lnk:hover {
   text-decoration: none;
   color: rgb(61, 61, 61);
+}
+
+.inputsearch {
+  color: white;
+  height: 40px !important;
+}
+
+.category {
+  display: flex;
 }

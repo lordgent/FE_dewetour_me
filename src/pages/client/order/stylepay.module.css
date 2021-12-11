@@ -4,7 +4,8 @@
 
 .content {
   padding: 100px;
-  margin-top: -80px;
+  margin-top: -100px;
+  margin-right: 0 !important;
 }
 
 .cardorder {
@@ -19,7 +20,7 @@
   color: white;
   background-color: #ffaf00;
   padding: 5px 45px 5px 45px;
-  right: 1rem;
+  right: 7rem;
   margin-top: 20px;
 }
 
@@ -85,6 +86,7 @@
   margin-left: 25px;
   border-radius: 8px;
   height: 60px;
+  margin-top: 30px;
 }
 .resultitem {
   font-size: 12px;
@@ -124,4 +126,26 @@
 .nottranscation {
   border: 1px solid red;
   margin-top: 40%;
+}
+
+.contentorder {
+  width: 100%;
+}
+.not {
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  background-color: white;
+}
+.imgnotorder {
+  margin-top: 12%;
+  margin-left: 36%;
+}
+
+.textnot {
+  text-align: center;
+  font-weight: bold;
+  color: rgb(100, 98, 98);
 }

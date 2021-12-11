@@ -5,3 +5,27 @@
 .pd {
   color: #ffaf00;
 }
+
+.modal {
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.26);
+  top: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  height: 100vh;
+}
+
+.pending {
+  color: #ffaf00;
+}
+.cancel {
+  color: red;
+}
+.approved {
+  color: rgb(34, 248, 34);
+}
+
+.load {
+  margin: 10% 0 auto 0;
+}

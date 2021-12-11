@@ -7,7 +7,7 @@
 .crd {
   width: 40%;
   margin: auto;
-  padding: 10px;
+  padding: 20px;
 }
 
 .dta {
@@ -21,7 +21,7 @@
 
 .sp {
   color: rgb(155, 155, 155);
-  font-size: 10px;
+  font-size: 13px;
 }
 
 .com {
@@ -35,19 +35,22 @@
 .btnprf {
   background-color: #ffaf00;
   color: white;
-  padding: 10px 70px 10px 70px;
-  margin: 20px auto 0 auto !important;
+  padding: 10px 60px 10px 60px;
+  margin: 5px auto 0 auto !important;
 }
 
 .btnprf:hover {
   text-decoration: none;
   color: white;
   background-color: #f7a800;
+  cursor: pointer;
 }
 
 .imgss {
-  width: 10rem;
-  height: 12rem;
+  width: 100%;
+  margin-bottom: -10px;
+  height: 14rem;
+  border: 1px solid white;
 }
 
 .if {
@@ -124,4 +127,116 @@
 .subtotals {
   color: rgb(253, 61, 61) !important;
   font-weight: bold;
+}
+.load {
+  height: 100vh;
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  z-index: 2;
+  right: 0;
+  bottom: 0;
+  top: 0;
+}
+
+.status {
+  color: rgb(47, 236, 47);
+  background-color: rgb(203, 248, 203);
+  width: 120px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.booking {
+  right: 1rem;
+  position: absolute;
+}
+
+.cardorder {
+  width: 75%;
+}
+
+.booking {
+  right: 1em;
+  position: absolute;
+  padding: 10px;
+}
+
+.textbooking {
+  font-weight: bold;
+  color: rgb(58, 58, 58);
+  margin-left: 3rem;
+}
+.dateorder {
+  color: rgb(180, 180, 180);
+  margin-top: -4px;
+  right: 1rem;
+  position: absolute;
+  font-size: 13px;
+}
+
+.title {
+  font-size: 21px;
+}
+
+.countries {
+  margin-top: -10px;
+  color: rgb(153, 153, 153);
+  font-weight: bold;
+}
+
+.com {
+  margin-top: 7px;
+}
+
+.titleorder {
+  font-size: 15px;
+  color: rgb(46, 46, 46);
+  font-weight: 600;
+}
+
+.result {
+  font-size: 14px;
+  color: rgb(146, 146, 146);
+  margin-top: -13px;
+}
+
+.imagepay {
+  margin-left: 4rem;
+  margin-top: 10px;
+}
+.tableorder {
+  margin-top: 10px;
+}
+
+.titletrip {
+  font-size: 27px;
+  font-weight: bold;
+  margin: 50px 0 auto 13%;
+}
+.waiting {
+  color: rgb(255, 218, 9);
+  background-color: rgb(250, 241, 170);
+  width: 120px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.cancel {
+  color: rgb(253, 148, 148);
+  background-color: rgb(255, 227, 227);
+  width: 120px;
+  padding: 1px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.formmodal {
+  padding: 20px;
+}
+.bottonedit {
+  color: white;
+  background-color: #f7a800;
+  border: 1px solid #f7a800;
+  width: 100%;
+  padding: 8px;
 }

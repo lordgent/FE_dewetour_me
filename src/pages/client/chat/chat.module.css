@@ -1,0 +1,80 @@
+.containerchat {
+  margin-top: 5%;
+  width: 100%;
+  padding: 20px;
+}
+
+.Contact {
+  border: 1px solid rgb(255, 255, 255);
+  margin-top: 10px;
+  padding: 10px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 2px 2px 2px rgb(224, 224, 224);
+  border-radius: 10px;
+}
+
+.imgadmin {
+  height: 46px;
+  width: 46px;
+  padding: 5px;
+  border-radius: 50%;
+  border: 1px solid rgb(255, 195, 66);
+  background-color: rgb(255, 195, 66);
+}
+
+.chatadmin {
+  border: 1px solid;
+  height: 75vh;
+
+  border-radius: 10px;
+  border: 1px solid rgb(255, 255, 255);
+  padding: 10px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 2px 2px 2px rgb(224, 224, 224);
+}
+
+.nameadmin {
+  font-size: 14px;
+  color: rgb(48, 48, 48);
+}
+
+.message {
+  font-size: 12px;
+  margin-top: -15px;
+  color: rgb(175, 175, 175);
+  cursor: pointer;
+}
+.titlecontact {
+  color: rgb(83, 83, 83);
+  font-weight: bold;
+}
+.adminreal {
+  border: 1px solid rgb(241, 200, 13);
+  padding: 2px;
+  border-radius: 10px;
+  font-size: 12px;
+  color: white;
+  background-color: rgb(241, 200, 13);
+}
+
+.containerinput {
+  display: flex;
+  width: 80%;
+  padding: 10px;
+  bottom: 0;
+  height: 60px;
+  position: absolute;
+}
+.sendmessage {
+  border: none;
+  background-color: rgb(253, 180, 22);
+  color: white;
+  padding: 10px;
+}
+
+.inputchat {
+  width: 90%;
+  border: 1px solid rgb(240, 240, 240);
+  background-color: rgb(240, 240, 240);
+  padding: 10px;
+}

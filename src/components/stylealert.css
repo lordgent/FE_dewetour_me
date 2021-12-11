@@ -1,0 +1,24 @@
+.containeralert {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(143, 143, 143, 0.24);
+  z-index: 4;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+
+  left: 0;
+  width: 100vh;
+}
+.contentpayment {
+  height: 10vh;
+  background-color: white;
+}
+
+.textpay {
+  font-size: 20px;
+  text-align: center;
+  width: 50%;
+  margin: auto;
+}

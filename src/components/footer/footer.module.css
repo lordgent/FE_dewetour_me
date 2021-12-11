@@ -1,0 +1,20 @@
+.container {
+  height: 45px;
+  background-color: #ffaf00;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  margin-top: 40px;
+}
+.text {
+  text-align: center;
+  color: white;
+  padding-top: 10px;
+}
+.imgs {
+  width: 140px;
+  right: 0;
+  position: fixed;
+  bottom: 0.1rem;
+  z-index: 3;
+}

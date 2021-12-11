@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Navbar, Container, Dropdown } from "react-bootstrap";
 import log from "../../assets/icons/Icon.png";
 import { Link, useHistory } from "react-router-dom";
@@ -20,10 +20,11 @@ function NavbarComp() {
   const [modal, setModal] = useState(false);
   const [modReg, setModReg] = useState(false);
   const [showDropdown, setDropdown] = useState(false);
+  const [isLoading, setisLoading] = useState(true);
 
   const [state, dispatch] = useContext(UserContext);
   const handleShowDropdown = () => setDropdown(true);
-  console.log(state.stsLogin);
+
   const handleClick = () => {
     setModal(true);
   };
@@ -39,49 +40,69 @@ function NavbarComp() {
     history.push("/");
   };
 
+  useEffect(() => {
+    setisLoading(false);
+  }, []);
+
   return (
     <>
-      <Navbar expand="lg" variant="light" className="navbar" fixed="top">
-        <Container>
-          {state.user.role === "admin" ? (
-            <Link to="/admin" className="log">
-              <img src={log} alt="loooddewetour" height="53" />
-            </Link>
-          ) : (
-            <Link to="/" className="log">
-              <img src={log} alt="loooddewetour" height="53" />
-            </Link>
-          )}
+      {isLoading ? (
+        <span></span>
+      ) : (
+        <>
+          <Navbar expand="lg" variant="light" className="navbar" fixed="top">
+            <Container>
+              <Link to="/" className="log">
+                <img src={log} alt="loooddewetour" height="53" />
+              </Link>
 
-          <div className="ml-auto">
-            {!state.stsLogin ? (
-              <>
-                <button className="btnlog" onClick={handleClick}>
-                  Login
-                </button>
-                <button className="btnreg" onClick={handleClickk}>
-                  Register
-                </button>
-              </>
-            ) : (
-              <>
-                <Avatar
-                  src={icusr}
-                  name={state.fullname}
-                  size="40"
-                  onClick={handleShowDropdown}
-                  className="rounded-circle "
-                  style={{ cursor: "pointer" }}
-                />
-              </>
-            )}
-          </div>
-        </Container>
-      </Navbar>
-      <LoginMod handleShow={modal} handleClose={() => setModal(false)} />
-      <RegisterMod handleShow={modReg} handleClose={() => setModReg(false)} />
-
-      <DropComp show={showDropdown} setDropdown={setDropdown} />
+              <div className="ml-auto">
+                {!state.stsLogin ? (
+                  <>
+                    <button className="btnlog" onClick={handleClick}>
+                      Login
+                    </button>
+                    <button className="btnreg" onClick={handleClickk}>
+                      Register
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    {state?.user?.imgprofile ? (
+                      <Avatar
+                        src={
+                          "http://localhost:5005/uploads/profile/" +
+                          state?.user?.imgprofile
+                        }
+                        name={state.fullname}
+                        size="40"
+                        onClick={handleShowDropdown}
+                        className="rounded-circle "
+                        style={{ cursor: "pointer" }}
+                      />
+                    ) : (
+                      <Avatar
+                        src={icusr}
+                        name={state.fullname}
+                        size="40"
+                        onClick={handleShowDropdown}
+                        className="rounded-circle "
+                        style={{ cursor: "pointer" }}
+                      />
+                    )}
+                  </>
+                )}
+              </div>
+            </Container>
+          </Navbar>
+          <LoginMod handleShow={modal} handleClose={() => setModal(false)} />
+          <RegisterMod
+            handleShow={modReg}
+            handleClose={() => setModReg(false)}
+          />
+          <DropComp show={showDropdown} setDropdown={setDropdown} />
+        </>
+      )}
     </>
   );
 }

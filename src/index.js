@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { ContextProvider } from "./context/Contextusr";
+import "mapbox-gl/dist/mapbox-gl.css";
 
 ReactDOM.render(
   <React.StrictMode>
